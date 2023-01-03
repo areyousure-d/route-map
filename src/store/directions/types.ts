@@ -1,8 +1,8 @@
-import { LatLngExpression } from "leaflet";
+import { LatLngTuple } from "leaflet";
 
 export interface Direction {
   id: number;
-  from: LatLngExpression;
-  to: LatLngExpression;
+  from: LatLngTuple;
+  to: LatLngTuple;
   selected: boolean;
 }
