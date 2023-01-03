@@ -8,7 +8,7 @@ import { ReduxProvider } from "./providers";
 export const App = () => {
   return (
     <ReduxProvider>
-      <BasicLayout directions={<Directions />} map={<Map />} />;
+      <BasicLayout directions={<Directions />} map={<Map />} />
     </ReduxProvider>
   );
 };
