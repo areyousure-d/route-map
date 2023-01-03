@@ -1,5 +1,7 @@
+import { Button } from "antd";
 import { useDispatch } from "react-redux";
 import { Direction, directionsActions } from "@/store/directions";
+import styles from "./direction-item.module.scss";
 
 interface Props {
   direction: Direction;
@@ -13,9 +15,14 @@ export const DirectionItem = ({ direction }: Props) => {
   };
 
   return (
-    <li>
-      {direction.selected && "selected"}
-      <button onClick={onClick}>{direction.id}</button>
+    <li className={styles["list-item"]}>
+      <Button
+        onClick={onClick}
+        type={direction.selected ? "primary" : "default"}
+        block
+      >
+        {direction.id} - direction
+      </Button>
     </li>
   );
 };

@@ -30,7 +30,7 @@ export const reducer: Reducer<MapState, MapAction> = (
     case mapActionTypes.SET_FROM_TO_POINTS: {
       const { from, to } = action.payload;
 
-      return { ...state, from, to };
+      return { ...state, from, to, route: [] };
     }
 
     case mapActionTypes.SET_ROUTE: {

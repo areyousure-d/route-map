@@ -12,7 +12,7 @@ function* setFromToPoints({
 function* fetchRoute({
   payload,
 }: ReturnType<typeof directionsActions.selectDirection>) {
-  const { route, error } = yield call(getRoute, {
+  const { route } = yield call(getRoute, {
     from: payload.from,
     to: payload.to,
   });

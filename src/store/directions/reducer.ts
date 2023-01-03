@@ -41,6 +41,18 @@ const initialState: DirectionsState = {
       to: [59.84660399, 30.29496392],
       selected: false,
     },
+    {
+      id: 6,
+      from: [59.871078, 29.908846],
+      to: [59.981203, 30.284436],
+      selected: false,
+    },
+    {
+      id: 7,
+      from: [59.871078, 29.908846],
+      to: [47.204588, 142.726489],
+      selected: false,
+    },
   ],
 };
 
@@ -48,6 +60,7 @@ export const reducer: Reducer<DirectionsState, DirectionsAction> = (
   state = initialState,
   action
 ) => {
+  // eslint-disable-next-line sonarjs/no-small-switch
   switch (action.type) {
     case directionsActionTypes.SELECT_DIRECTION: {
       const newDirections = state.directions.map((direction) => {

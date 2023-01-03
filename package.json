@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "host": "vite --host",
     "lint": "eslint --ext .ts,.tsx src",
     "lint:fix": "eslint --ext .ts,.tsx src --fix"
   },
@@ -28,6 +29,7 @@
     "@vitejs/plugin-react": "^3.0.0",
     "eslint": "^8.31.0",
     "eslint-kit": "^6.10.0",
+    "sass": "^1.57.1",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
   }
