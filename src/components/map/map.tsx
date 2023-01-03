@@ -7,6 +7,7 @@ import {
 } from "react-leaflet";
 import { useSelector } from "react-redux";
 import { mapSelectors } from "@/store/map";
+import { ZoomToViewBounds } from "../zoom-to-view-bounds";
 
 export const Map = () => {
   const { from, to } = useSelector(mapSelectors.fromToPoints);
@@ -28,6 +29,8 @@ export const Map = () => {
       </Marker>
 
       <Polyline pathOptions={{ color: "blue" }} positions={route} />
+
+      <ZoomToViewBounds bounds={[from, to]} />
     </MapContainer>
   );
 };

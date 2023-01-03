@@ -16,8 +16,8 @@ type MapAction =
   | ReturnType<typeof mapActions.setError>;
 
 const initialState: MapState = {
-  from: [0, 0],
-  to: [0, 0],
+  from: [59.84660399, 30.29496392],
+  to: [59.84660399, 30.29496392],
   route: [],
   isError: false,
 };
