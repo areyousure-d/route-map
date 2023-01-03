@@ -1,9 +1,14 @@
 import "./styles/index.css";
 import "antd/dist/reset.css";
 import { BasicLayout } from "../components/basic-layout";
+import { Directions } from "../components/directions";
 import { Map } from "../components/map";
-import { Menu } from "../components/menu";
+import { ReduxProvider } from "./providers";
 
 export const App = () => {
-  return <BasicLayout menu={<Menu />} map={<Map />} />;
+  return (
+    <ReduxProvider>
+      <BasicLayout directions={<Directions />} map={<Map />} />;
+    </ReduxProvider>
+  );
 };

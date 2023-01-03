@@ -3,17 +3,17 @@ import { ReactNode } from "react";
 import styles from "./basic-layout.module.css";
 
 interface Props {
-  menu: ReactNode;
+  directions: ReactNode;
   map: ReactNode;
 }
 
-export const BasicLayout = ({ menu, map }: Props) => {
+export const BasicLayout = ({ directions, map }: Props) => {
   return (
     <Layout className={styles.layout}>
       <Layout.Content className={styles.content}>
         <Row className={styles.row}>
-          <Col span={12} className={styles["menu-col"]}>
-            {menu}
+          <Col span={12} className={styles["directions-col"]}>
+            {directions}
           </Col>
 
           <Col span={12} className={styles["map-col"]}>

@@ -10,12 +10,12 @@
     flex-direction: column;
   }
 
-  .menu-col,
+  .directions-col,
   .map-col {
     max-width: 100%;
   }
 
-  .menu-col {
+  .directions-col {
     flex: 0 0 30%;
   }
 
