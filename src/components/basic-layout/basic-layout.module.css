@@ -1,0 +1,25 @@
+.layout, 
+.content,
+.row {
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-col,
+  .map-col {
+    max-width: 100%;
+  }
+
+  .menu-col {
+    flex: 0 0 30%;
+  }
+
+  .map-col {
+    flex: 0 0 70%;
+  }
+}
