@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import { Direction, directionsActions } from "@/store/directions";
 import styles from "./direction-item.module.scss";
 
-interface Props {
+type Props = {
   direction: Direction;
-}
+};
 
 export const DirectionItem = ({ direction }: Props) => {
   const dispatch = useDispatch();

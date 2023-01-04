@@ -10,4 +10,10 @@ module.exports = configure({
     presets.node(),
     presets.imports(),
   ],
+
+  extend: {
+    rules: {
+      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    },
+  },
 });

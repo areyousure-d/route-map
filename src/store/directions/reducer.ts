@@ -3,9 +3,9 @@ import * as directionsActionTypes from "./action-types";
 import * as directionsActions from "./actions";
 import { Direction } from "./types";
 
-interface DirectionsState {
+type DirectionsState = {
   directions: Array<Direction>;
-}
+};
 
 type DirectionsAction = ReturnType<typeof directionsActions.selectDirection>;
 

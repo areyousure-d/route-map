@@ -3,12 +3,12 @@ import { Reducer } from "redux";
 import * as mapActionTypes from "./action-types";
 import * as mapActions from "./actions";
 
-interface MapState {
+type MapState = {
   from: LatLngTuple;
   to: LatLngTuple;
   route: LatLngTuple[];
   isError: boolean;
-}
+};
 
 type MapAction =
   | ReturnType<typeof mapActions.setFromToPoints>

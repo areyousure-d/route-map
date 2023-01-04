@@ -2,10 +2,10 @@ import { Col, Layout, Row } from "antd";
 import { ReactNode } from "react";
 import styles from "./basic-layout.module.css";
 
-interface Props {
+type Props = {
   directions: ReactNode;
   map: ReactNode;
-}
+};
 
 export const BasicLayout = ({ directions, map }: Props) => {
   return (
