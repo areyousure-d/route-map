@@ -1,6 +1,6 @@
 import { Col, Layout, Row } from "antd";
 import { ReactNode } from "react";
-import styles from "./basic-layout.module.css";
+import styles from "./basic-layout.module.scss";
 
 type Props = {
   directions: ReactNode;
