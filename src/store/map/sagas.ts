@@ -1,7 +1,7 @@
 import { all, call, put, takeEvery } from "redux-saga/effects";
 import { getRoute } from "@/shared/api";
-import { directionsActions, directionsActionTypes } from "../directions";
-import * as mapActions from "./actions";
+import { directionsActions } from "../directions";
+import { mapActions } from "./map-slice";
 
 function* setFromToPoints({
   payload,
@@ -26,7 +26,7 @@ function* fetchRoute({
 
 export function* watchDirectionSelect() {
   yield all([
-    takeEvery(directionsActionTypes.SELECT_DIRECTION, setFromToPoints),
-    takeEvery(directionsActionTypes.SELECT_DIRECTION, fetchRoute),
+    takeEvery(directionsActions.selectDirection.type, setFromToPoints),
+    takeEvery(directionsActions.selectDirection.type, fetchRoute),
   ]);
 }

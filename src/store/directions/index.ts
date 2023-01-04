@@ -1,5 +1,3 @@
-export * as directionsActionTypes from "./action-types";
-export * as directionsActions from "./actions";
-export { reducer as directionsReducer } from "./reducer";
+export { directionsActions, directionsReducer } from "./directions-slice";
 export * as directionsSelectors from "./selectors";
 export type { Direction } from "./types";

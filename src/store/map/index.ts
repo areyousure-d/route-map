@@ -1,4 +1,3 @@
-export * as mapActions from "./actions";
-export { reducer as mapReducer } from "./reducer";
+export { mapActions, mapReducer } from "./map-slice";
 export * as mapSagas from "./sagas";
 export * as mapSelectors from "./selectors";

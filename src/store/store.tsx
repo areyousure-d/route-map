@@ -1,4 +1,5 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
 import createSagaMiddleware from "redux-saga";
 import { directionsReducer } from "./directions";
 import { mapReducer } from "./map";
@@ -6,13 +7,18 @@ import { rootSaga } from "./root-saga";
 
 const sagaMiddleware = createSagaMiddleware();
 
-const rootReducer = combineReducers({
-  directions: directionsReducer,
-  map: mapReducer,
+export const store = configureStore({
+  reducer: {
+    directions: directionsReducer,
+    map: mapReducer,
+  },
+  middleware: [sagaMiddleware],
+  devTools: true,
 });
-
-export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(rootSaga);
 
-export type RootState = ReturnType<typeof rootReducer>;
+export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch: () => AppDispatch = useDispatch;
+
+export type RootState = ReturnType<typeof store.getState>;

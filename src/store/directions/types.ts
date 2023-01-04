@@ -6,3 +6,7 @@ export type Direction = {
   to: LatLngTuple;
   selected: boolean;
 };
+
+export type DirectionsState = {
+  directions: Array<Direction>;
+};
