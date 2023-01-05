@@ -9,3 +9,5 @@ export const fromToPoints = (state: RootState) => {
 export const route = (state: RootState) => state.map.route;
 
 export const isError = (state: RootState) => state.map.isError;
+
+export const isLoading = (state: RootState) => state.map.isLoading;

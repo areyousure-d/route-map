@@ -11,7 +11,9 @@ export const DirectionItem = ({ direction }: Props) => {
   const dispatch = useDispatch();
 
   const onClick = () => {
-    dispatch(directionsActions.selectDirection(direction));
+    if (!direction.selected) {
+      dispatch(directionsActions.selectDirection(direction));
+    }
   };
 
   return (

@@ -9,6 +9,7 @@ export const setFromToPoints = (
   state.from = action.payload.from;
   state.to = action.payload.to;
   state.route = [];
+  state.isLoading = true;
 };
 
 export const setRoute = (
@@ -17,8 +18,10 @@ export const setRoute = (
 ) => {
   state.route = action.payload;
   state.isError = false;
+  state.isLoading = false;
 };
 
 export const setError = (state: MapState) => {
   state.isError = true;
+  state.isLoading = false;
 };

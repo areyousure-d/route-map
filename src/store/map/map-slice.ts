@@ -3,10 +3,11 @@ import * as reducers from "./reducers";
 import { MapState } from "./types";
 
 const initialState: MapState = {
-  from: [59.84660399, 30.29496392],
-  to: [59.84660399, 30.29496392],
+  from: null,
+  to: null,
   route: [],
   isError: false,
+  isLoading: false,
 };
 
 const mapSlice = createSlice({

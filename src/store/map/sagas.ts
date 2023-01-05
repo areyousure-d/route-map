@@ -1,5 +1,6 @@
-import { all, call, put, takeEvery } from "redux-saga/effects";
+import { call, fork, put, takeLeading } from "redux-saga/effects";
 import { getRoute } from "@/shared/api";
+import { Either } from "@/shared/utils/either";
 import { directionsActions } from "../directions";
 import { mapActions } from "./map-slice";
 
@@ -12,21 +13,27 @@ function* setFromToPoints({
 function* fetchRoute({
   payload,
 }: ReturnType<typeof directionsActions.selectDirection>) {
-  const { route } = yield call(getRoute, {
-    from: payload.from,
-    to: payload.to,
-  });
+  const res: Either<{ error: boolean }, { route: Array<[number, number]> }> =
+    yield call(getRoute, {
+      from: payload.from,
+      to: payload.to,
+    });
 
-  if (route) {
-    yield put(mapActions.setRoute(route));
+  if (res.type === "right") {
+    yield put(mapActions.setRoute(res.data.route));
   } else {
     yield put(mapActions.setError());
   }
 }
 
+function* mapWorker({
+  payload,
+  type,
+}: ReturnType<typeof directionsActions.selectDirection>) {
+  yield fork(setFromToPoints, { payload, type });
+  yield fork(fetchRoute, { payload, type });
+}
+
 export function* watchDirectionSelect() {
-  yield all([
-    takeEvery(directionsActions.selectDirection.type, setFromToPoints),
-    takeEvery(directionsActions.selectDirection.type, fetchRoute),
-  ]);
+  yield takeLeading(directionsActions.selectDirection.type, mapWorker);
 }
